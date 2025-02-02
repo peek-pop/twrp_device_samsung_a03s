@@ -37,6 +37,5 @@ odm  		/odm         		ext4							wait,logical,first_stage_mount
 /sspm_1		emmc		/dev/block/platform/bootdevice/by-name/sspm_1		flags=backup=1;display="Sspm_1" 
 
 # Removable storage
-/sdcard     	f2fs	/dev/block/mmcblk0p50	/dev/block/mmcblk0  	flags=display="Sdcard";storage;wipeingui
 /external_sd	vfat	/dev/block/mmcblk1p1	/dev/block/mmcblk1		flags=display="MicroSD card";storage;wipeingui;removable
 /usb-otg    	vfat	/dev/block/sda1 		/dev/block/sda			flags=display="USB-OTG";storage;wipeingui;removable
