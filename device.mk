@@ -13,6 +13,8 @@ PRODUCT_SHIPPING_API_LEVEL := 32
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
+PRODUCT_PRODUCT_VNDK_VERSION := current 
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -27,6 +29,7 @@ PRODUCT_PACKAGES += \
 # Health Hal
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
     
 # MTK plpath utils
@@ -38,3 +41,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.twrp.vendor_boot=true \
     persist.sys.fuse.passthrough.enable=true	
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.volume.metadata.method=dm-default-key \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.options=::v2 \
+    keymaster_ver=4.0
