@@ -7,4 +7,3 @@
 
 soong_namespace {
 }
-system_ext_specific := true
