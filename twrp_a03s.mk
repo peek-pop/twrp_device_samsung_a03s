@@ -34,10 +34,20 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/a03s/recovery/root,recovery/root)
 
-## Device identifier. This must come after all inclusions
-PRODUCT_NAME := twrp_a03s
+# Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a03s
-PRODUCT_MODEL := Galaxy A03s
+PRODUCT_NAME := twrp_a03s
 PRODUCT_BRAND := samsung
+PRODUCT_MODEL := SM-A037F
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
+
+# Build fingerprint from Indian variant.
+PRODUCT_BUILD_PROP_OVERRIDES := \
+PRIVATE_BUILD_DESC="twrp_a03s-eng 12 SP2A.220405.004 A037FXXS7CXK1 test-keys"
+BUILD_USERNAME="Topser99"
+BUILD_FINGERPRINT="samsung/twrp_a03s-eng/a03s:12/SP1A.210812.016/A037FXXS7CXK1:eng/test-keys"
+BUILD_VERSION_TAGS="test-keys"
+TARGET_BUILD_TYPE="eng"
+TARGET_BUILD_FLAVOR="twrp_a03s-eng"
+BUILD_DISPLAY_ID="SP1A.210812.016.A037FXXS7CXK1"
