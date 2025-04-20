@@ -100,6 +100,7 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 6106906624
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product odm
 
+# Root
 BOARD_ROOT_EXTRA_FOLDERS := cache data_mirror debug_ramdisk linkerconfig postinstall
 BOARD_SUPPRESS_SECURE_ERASE := true
 
@@ -112,9 +113,6 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_USERDATA := userdata
 TARGET_COPY_OUT_SYSTEM := system
 TARGET_COPY_OUT_VENDOR := vendor
-
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Do not go full treble for recovery
 PRODUCT_FULL_TREBLE_OVERRIDE := false
