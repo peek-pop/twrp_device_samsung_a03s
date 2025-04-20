@@ -144,8 +144,8 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 0
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 3
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Crypto
 PLATFORM_VERSION := 13
@@ -159,7 +159,6 @@ TW_THEME := portrait_hdpi
 TW_NO_LEGACY_PROPS := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_SECONDARY_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 50
 TW_Y_OFFSET := 50
@@ -180,7 +179,6 @@ TW_INCLUDE_FUSE_EXFAT := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
 # Display
 DEVICE_RESULATION := 720×1600
