@@ -21,10 +21,18 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
 
+Use Sdcardfs
+PRODUCT_PRODUCT_PROPERTIES += \ 
+     ro.sys.sdcardfs=1
+
+PRODUCT_PACKAGES += \ 
+    bootctrl.mt6765 \ 
+    bootctrl.mt6765.recovery
+
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery
+    android.hardware.boot@1.1-impl \
+    android.hardware.boot@1.1-impl.recovery
 
 # Health Hal
 PRODUCT_PACKAGES += \
@@ -42,6 +50,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.boot.product.vendor.sku=true \
     persist.sys.fuse.passthrough.enable=true
 
+# HEH filename encryption is being dropped
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.allow_encrypt_override=true \
     ro.crypto.volume.filenames_mode=aes-256-cts \

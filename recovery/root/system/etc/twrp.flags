@@ -1,6 +1,8 @@
 # mount point    	fs          type		device			device2				flags
 
 # Image
+/boot    	emmc    	/dev/block/by-name/boot     	flags=backup=1;flashimg
+/recovery   emmc    	/dev/block/by-name/recovery     flags=backup=1;flashimg
 /dtbo_image 	emmc		/dev/block/by-name/dtbo     			flags=backup=1;flashimg;display="DTBO Image"
 /md1img_image	emmc		/dev/block/by-name/md1img       		flags=backup=1;flashimg;display="MD1img Image"
 /omr_image      emmc        /dev/block/by-name/omr      		    flags=backup=1;flashimg;display="OMR Image"
@@ -14,13 +16,10 @@
 /vbmeta_system_image	emmc		/dev/block/by-name/vbmeta_system                flags=backup=1;flashimg;display="Vbmeta System"
 
 # Physical partitions
-/boot    	emmc    	/dev/block/platform/bootdevice/by-name/boot     	flags=backup=1;flashimg
-/recovery   emmc    	/dev/block/platform/bootdevice/by-name/recovery     flags=backup=1;flashimg
 /cache		ext4		/dev/block/platform/bootdevice/by-name/cache		flags=backup=0;display="Cache"
 /data		f2fs    	/dev/block/platform/bootdevice/by-name/userdata 	flags=encryptable=footer,length=-16384
 /efs		ext4		/dev/block/platform/bootdevice/by-name/sec_efs		flags=backup=1;display="EFS"
 /metadata	ext4		/dev/block/platform/bootdevice/by-name/md_udc		flags=backup=1;display="Metadata"
-/misc   	emmc		/dev/block/platform/bootdevice/by-name/misc  		flags=backup=0;display="Misc"
 /nvram		emmc    	/dev/block/platform/bootdevice/by-name/nvram        flags=backup=1;display="NVram"
 /omr        ext4        /dev/block/platform/bootdevice/by-name/omr          flags=backup=0;display="OMR"
 /optics     ext4		/dev/block/platform/bootdevice/by-name/optics   	flags=backup=0;display="Optics"
