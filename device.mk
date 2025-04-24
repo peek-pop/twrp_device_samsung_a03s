@@ -38,7 +38,8 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils.recovery
 
 # Use FUSE passthrough 
-PRODUCT_PRODUCT_PROPERTIES += \ 
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.boot.product.vendor.sku=true \
     persist.sys.fuse.passthrough.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
