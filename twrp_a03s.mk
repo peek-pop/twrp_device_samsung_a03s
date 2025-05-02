@@ -25,6 +25,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # For PitchBlack use vendor/pb/config/common.mk
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# Inherit Telephony packages
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit language packages
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
 # Inherit device configuration
 $(call inherit-product, device/samsung/a03s/device.mk)
 
@@ -37,22 +43,17 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/a03s/recove
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a03s
 PRODUCT_NAME := twrp_a03s
-PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-A037F
+PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
-PRODUCT_SYSTEM_NAME := a03snnxx
+PRODUCT_SYSTEM_NAME := twrp_a03s
 PRODUCT_SYSTEM_DEVICE := a03s
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=$(PRODUCT_SYSTEM_DEVICE) \
-    TARGET_PRODUCT=$(PRODUCT_SYSTEM_NAME)
-
-# Build fingerprint.
 PRODUCT_BUILD_PROP_OVERRIDES := \
     PRIVATE_BUILD_DESC="twrp_a03s-eng 12 SP2A.220405.004 A037FXXS7CXK1 test-keys" \
     BUILD_USERNAME="Topser99" \
-    BUILD_FINGERPRINT="samsung/twrp_a03s-eng/a03s:12/SP1A.210812.016/A037FXXS7CXK1:eng/test-keys" \
+    BUILD_FINGERPRINT="samsung/twrp_a03s/a03s:12/SP1A.210812.016/A037FXXS7CXK1:eng/test-keys" \
     TARGET_BUILD_TYPE="eng" \
     TARGET_BUILD_FLAVOR="twrp_a03s-eng" \
     BUILD_DISPLAY_ID="SP1A.210812.016.A037FXXS7CXK1"
