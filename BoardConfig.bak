@@ -127,9 +127,9 @@ BOARD_VNDK_VERSION := current
 
 # Sepolicy
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/system_ext/private
+    $(LOCAL_SEPOLICY)/system_ext/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/system_ext/public
+    $(LOCAL_SEPOLICY)/system_ext/public
 
 # Recovery
 RECOVERY_GRAPHICS_USE_LINELENGTH := true

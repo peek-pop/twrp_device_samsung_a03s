@@ -14,25 +14,23 @@ PRODUCT_SHIPPING_API_LEVEL := 32
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
-PRODUCT_PRODUCT_VNDK_VERSION := current 
+PRODUCT_PRODUCT_VNDK_VERSION := current
 
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
+    android.hardware.fastboot@1.0-impl-mock.recovery
 
-Use Sdcardfs
-PRODUCT_PRODUCT_PROPERTIES += \ 
-     ro.sys.sdcardfs=1
-
-PRODUCT_PACKAGES += \ 
-    bootctrl.mt6765 \ 
-    bootctrl.mt6765.recovery
+Fastbootd
+PRODUCT_PACKAGES += \
+	fastbootd \
+	android.hardware.fastboot@1.0-impl-mock \
+	android.hardware.fastboot@1.0-impl-mock.recovery
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl \
-    android.hardware.boot@1.1-impl.recovery
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery
 
 # Health Hal
 PRODUCT_PACKAGES += \
@@ -45,17 +43,19 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
 
-# Use FUSE passthrough 
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.boot.product.vendor.sku=true \
-    persist.sys.fuse.passthrough.enable=true
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=a03snnxx \
+    BUILD_PRODUCT=a03s \
+    TARGET_DEVICE=a03s
 
-# HEH filename encryption is being dropped
+# HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.crypto.allow_encrypt_override=true \
-    ro.crypto.volume.filenames_mode=aes-256-cts \
-    ro.crypto.metadata_init_delete_all_keys.enabled=true \
-    ro.crypto.volume.metadata.method=dm-default-key \
-    ro.crypto.dm_default_key.options_format.version=2 \
-    ro.crypto.volume.options=::v2 \
-    keymaster_ver=4.0
+    ro.vendor.build.security_patch=2099-12-31
+
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.bootimage.build.date.utc \
+    ro.build.date.utc
+
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
+TW_LOAD_VENDOR_MODULES := "bt_drv.ko fmradio_drv.ko"
