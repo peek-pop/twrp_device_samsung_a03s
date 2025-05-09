@@ -19,6 +19,7 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
 
 # Boot control HAL
@@ -31,8 +32,3 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
-    
-# MTK plpath utils
-PRODUCT_PACKAGES += \
-    mtk_plpath_utils \
-    mtk_plpath_utils.recovery
