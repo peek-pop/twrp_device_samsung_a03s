@@ -19,13 +19,12 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
-    android.hardware.fastboot@1.0-impl-mock.recovery
+    fastbootd
 
-Fastbootd
+# Fastbootd
 PRODUCT_PACKAGES += \
-	fastbootd \
-	android.hardware.fastboot@1.0-impl-mock \
-	android.hardware.fastboot@1.0-impl-mock.recovery
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
