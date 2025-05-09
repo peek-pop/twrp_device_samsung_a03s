@@ -19,7 +19,10 @@ PRODUCT_RELEASE_NAME := a03s
 
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/product_config.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/product_config.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/config.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/envsetup.mk)
 
 # Inherit some common TWRP stuff.
 # For PitchBlack use vendor/pb/config/common.mk
