@@ -43,11 +43,6 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=a03snnxx \
-    BUILD_PRODUCT=a03s \
-    TARGET_DEVICE=a03s
-
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31
@@ -58,4 +53,3 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
 
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
-TW_LOAD_VENDOR_MODULES := "bt_drv.ko fmradio_drv.ko"
