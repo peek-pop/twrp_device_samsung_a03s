@@ -19,10 +19,7 @@ PRODUCT_RELEASE_NAME := a03s
 
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/product_config.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/product_config.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/config.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/build/make/core/envsetup.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit some common TWRP stuff.
 # For PitchBlack use vendor/pb/config/common.mk
@@ -45,12 +42,9 @@ PRODUCT_MODEL := SM-A037F
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
-# Build fingerprint from Indian variant.
-PRODUCT_BUILD_PROP_OVERRIDES := \
-    BUILD_PRODUCT := a03s \
-    TARGET_DEVICE := a03s \
-PRIVATE_BUILD_DESC="twrp_a03s-eng 12 SP2A.220405.004 A037FXXS7CXK1 test-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="a03snnxx-user 13 TP1A.220624.014 A037FXXS7CXK1 release-keys"
+BUILD_FINGERPRINT="samsung/a03snnxx/a03s:13/TP1A.220624.014/A037FXXU4CWI1:user/release-keys"
+BUILD_DISPLAY_ID=TP1A.220624.014.A037FXXS7CXK1
 BUILD_USERNAME="Topser99"
-BUILD_FINGERPRINT="samsung/twrp_a03s/a03s:12/SP1A.210812.016/A037FXXS7CXK1:eng/test-keys"
-TARGET_BUILD_FLAVOR="twrp_a03s-eng"
-BUILD_DISPLAY_ID="SP1A.210812.016.A037FXXS7CXK1"
+TARGET_BUILD_FLAVOR="a03snnxx-user"
