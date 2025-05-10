@@ -15,6 +15,7 @@ PRODUCT_SHIPPING_API_LEVEL := 32
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
 PRODUCT_PRODUCT_VNDK_VERSION := current
+PRODUCT_BUILD_RECOVERY_IMAGE := true
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -32,3 +33,8 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
+
+PRODUCT_PACKAGES += \
+    linker.recovery \
+    shell_and_utilities_recovery \
+    adbd.recovery \
