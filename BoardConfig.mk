@@ -105,7 +105,7 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 6106906624
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product odm
 
-BOARD_ROOT_EXTRA_FOLDERS := data_mirror debug_ramdisk linkerconfig postinstall
+BOARD_ROOT_EXTRA_FOLDERS := data_mirror debug_ramdisk odm_dlkm linkerconfig postinstall system_dlkm vendor_dlkm
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Workaround for error copying vendor files to recovery ramdisk
