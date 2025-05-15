@@ -37,7 +37,4 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     linker.recovery \
     shell_and_utilities_recovery \
-    adbd.recovery \
-
-PRODUCT_PROPERTY_OVERRIDES += debug.atrace.tags.enableflags=802922 
-PRODUCT_PROPERTY_OVERRIDES += persist.traced.enable=0
+    adbd.recovery
