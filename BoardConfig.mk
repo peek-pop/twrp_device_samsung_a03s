@@ -19,22 +19,20 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_SMP := true
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_2ND_CPU_VARIANT := cortex-a53
+TARGET_USES_64_BIT_BINDER := true
 
 TARGET_CPU_ABI_LIST := arm64-v8a,armeabi-v7a,armeabi
 TARGET_CPU_ABI_LIST_64_BIT := arm64-v8a
 TARGET_CPU_ABI_LIST_32_BIT := armeabi-v7a,armeabi
 
-TARGET_USES_64_BIT_BINDER := true
-TARGET_CPU_SMP := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 TARGET_USES_UEFI := true
@@ -89,7 +87,7 @@ BOARD_KERNEL_SEPARATED_DTBO :=
 endif
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 13107
+BOARD_FLASH_BLOCK_SIZE := 181150
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 38797312
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
@@ -118,11 +116,8 @@ TARGET_COPY_OUT_USERDATA := userdata
 TARGET_COPY_OUT_SYSTEM := system
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Do not go full treble for recovery
-PRODUCT_FULL_TREBLE_OVERRIDE := false
-
-# VNDK
-BOARD_VNDK_VERSION := current
+# System as root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Sepolicy
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
@@ -146,31 +141,9 @@ BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-BOARD_AVB_avb_RECOVERY_ADD_HASH_FOOTER_ARGS := --prop com.android.build.recovery.fingerprint:samsung/a03snnxx/a03s:12/SP1A.210812.016/A037FXXS7CXK1:user/release-keys --rollback_index 0
-
-# Using sha256 for dm-verity partitions. b/178983355
-# system, system_other, system_ext and product.
-BOARD_AVB_SYSTEM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-BOARD_AVB_SYSTEM_OTHER_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-BOARD_AVB_SYSTEM_EXT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-BOARD_AVB_PRODUCT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha25
-
-# vendor and odm.
-BOARD_AVB_VENDOR_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-# vendor_dlkm and odm_dlkm.
-BOARD_AVB_VENDOR_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-BOARD_AVB_ODM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
-
-# FIXME: Remove this once we generate the vbmeta digest correctly
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
-# Enable chained vbmeta for system image mixing
-BOARD_AVB_VBMETA_SYSTEM := product system system_ext
-BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
+BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS := --prop com.android.build.recovery.fingerprint:samsung/a03snnxx/a03s:12/SP1A.210812.016/A037FXXS7CXK1:user/release-keys --rollback_index 0
 # Enable chained vbmeta for boot images
+BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS := --prop com.android.build.boot.fingerprint:samsung/a03snnxx/a03s:12/SP1A.210812.016/A037FXXS7CXK1:user/release-keys --prop com.android.build.boot.os_version:12 --prop com.android.build.boot.security_patch:2019-06-06 --rollback_index 0
 BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
@@ -180,9 +153,9 @@ BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 PLATFORM_VERSION := 13
 PLATFORM_SECURITY_PATCH :=2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := false
 BOARD_USES_METADATA_PARTITION := true
 
 # TWRP specific build flags
