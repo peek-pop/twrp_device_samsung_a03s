@@ -111,7 +111,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Properties
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab:recovery/root/system/etc/twrp.flags
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_INITRC := $(DEVICE_PATH)/recovery/root/init.recovery.mt6768.rc
 
 # Recovery
@@ -130,7 +130,6 @@ BOARD_AVB_ALGORITHM := SHA512_RSA4096
 BOARD_AVB_KEY_PATH := /external/avb/test/data/rsa_key_4096bits.pem
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS := --prop com.android.build.recovery.fingerprint:samsung/a03snnxx/a03s:12/SP1A.210812.016/A037FXXS7CXK1:user/release-keys --rollback_index 0
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
