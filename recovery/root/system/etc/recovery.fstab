@@ -51,7 +51,7 @@
 # /dev/block/platform/bootdevice/by-name/keydata     /keydata        ext4        defaults                  recoveryonly
 # /dev/block/platform/bootdevice/by-name/keyrefuge	/keyrefuge	f2fs	defaults	recoveryonly
 
-system                                               /system       ext4        ro,barrier=1,discard      avb=vbmeta,logical,first_stage_mount
-vendor                                               /vendor       ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
+system                                               /system       ext4        ro,barrier=1,discard      avb=vbmeta,logical,first_stage_mount formattable
+vendor                                               /vendor       ext4        ro,barrier=1,discard      avb,logical,first_stage_mount formattable
 product                                              /product      ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
 odm                                                  /odm          ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
