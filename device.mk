@@ -32,3 +32,8 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
+
+# Hide Reflash TWRP & FUSE passthrough
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.twrp.vendor_boot=true \
+    persist.sys.fuse.passthrough.enable=:= true	
