@@ -76,8 +76,7 @@ BOARD_MKBOOTIMG_ARGS += --board "SRPUE06A007"
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/recovery.img-dtb
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/recovery.img-dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo
 endif
 
@@ -192,6 +191,7 @@ TW_EXCLUDE_APEX := true
 TW_MAIN_VERSION := $(shell sed -n -e 's/^.*#define TW_MAIN_VERSION_STR //p' bootable/recovery/variables.h | cut -d'"' -f 2)
 CUSTOM_TWRP_VERSION := $(shell cat $(CUSTOM_TWRP_BUILD_NUMBER_FILE))
 TW_DEVICE_VERSION := Samsung Galaxy A03s
+
 
 
 
