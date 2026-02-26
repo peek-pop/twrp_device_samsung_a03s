@@ -112,6 +112,7 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 # Properties
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_INITRC := $(DEVICE_PATH)/recovery/root/init.recovery.mt6768.rc
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
@@ -188,5 +189,6 @@ TW_EXCLUDE_APEX := true
 TW_MAIN_VERSION := $(shell sed -n -e 's/^.*#define TW_MAIN_VERSION_STR //p' bootable/recovery/variables.h | cut -d'"' -f 2)
 CUSTOM_TWRP_VERSION := $(shell cat $(CUSTOM_TWRP_BUILD_NUMBER_FILE))
 TW_DEVICE_VERSION := Samsung Galaxy A03s
+
 
 
