@@ -77,7 +77,8 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/recovery.img-dtb
+BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo
 BOARD_INCLUDE_DTB_IN_BOOTIMG :=
 BOARD_KERNEL_SEPARATED_DTBO :=
@@ -193,6 +194,7 @@ TW_INCLUDE_LPTOOLS := true
 TW_MAIN_VERSION := $(shell sed -n -e 's/^.*#define TW_MAIN_VERSION_STR //p' bootable/recovery/variables.h | cut -d'"' -f 2)
 CUSTOM_TWRP_VERSION := $(shell cat $(CUSTOM_TWRP_BUILD_NUMBER_FILE))
 TW_DEVICE_VERSION := Samsung Galaxy A03s
+
 
 
 
