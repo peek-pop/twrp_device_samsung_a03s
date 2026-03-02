@@ -160,9 +160,9 @@ TW_NO_LEGACY_PROPS := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 50
-TW_Y_OFFSET := 80
-TW_H_OFFSET := -80
+TW_DEFAULT_BRIGHTNESS := 150
+TW_Y_OFFSET := 60
+TW_H_OFFSET := -60
 TW_FRAMERATE := 60
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
@@ -191,9 +191,8 @@ TWRP_EVENT_LOGGING := true
 TW_INCLUDE_PYTHON := true
 TW_INCLUDE_LPDUMP := true
 TW_INCLUDE_LPTOOLS := true
-TW_MAIN_VERSION := $(shell sed -n -e 's/^.*#define TW_MAIN_VERSION_STR //p' bootable/recovery/variables.h | cut -d'"' -f 2)
-CUSTOM_TWRP_VERSION := $(shell cat $(CUSTOM_TWRP_BUILD_NUMBER_FILE))
 TW_DEVICE_VERSION := Samsung Galaxy A03s
+
 
 
 
