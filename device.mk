@@ -35,5 +35,5 @@ PRODUCT_PACKAGES += \
 
 # Hide Reflash TWRP & FUSE passthrough
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.twrp.vendor_boot=true \
-    persist.sys.fuse.passthrough.enable=:= true	
+    ro.twrp.vendor_boot := true \
+    persist.sys.fuse.passthrough.enable := true	
