@@ -34,10 +34,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/a03s/recovery/root,recovery/root)
 
-## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := a03s
-PRODUCT_NAME := twrp_a03s
+# Device identifier. This must come after all inclusions
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-A037F
+PRODUCT_DEVICE := a03s
 PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SM-A037F
+PRODUCT_NAME := twrp_a03s
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
+
