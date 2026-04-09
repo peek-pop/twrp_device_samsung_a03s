@@ -18,8 +18,8 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 
 # fastbootd
 PRODUCT_PACKAGES += \
-	android.hardware.fastboot@1.0-impl-mock \
-	android.hardware.fastboot@1.0-impl-mock.recovery \
+	android.hardware.fastboot@1.0-impl-mtk \
+	android.hardware.fastboot@1.0-impl-mtk.recovery \
 	fastbootd
 
 # bootctrl
@@ -35,5 +35,4 @@ PRODUCT_PACKAGES += \
 
 # Hide Reflash TWRP & FUSE passthrough
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.twrp.vendor_boot=true \
     persist.sys.fuse.passthrough.enable=true	
