@@ -15,7 +15,7 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := Galaxy A03s
+PRODUCT_RELEASE_NAME := a03s
 
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
@@ -34,7 +34,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/a03s/recovery/root,recovery/root)
 
-# Device identifier. This must come after all inclusions
+## Device identifier. This must come after all inclusions
 PRODUCT_BRAND := samsung
 PRODUCT_DEVICE := a03s
 PRODUCT_MANUFACTURER := samsung
@@ -42,3 +42,7 @@ PRODUCT_MODEL := SM-A037F
 PRODUCT_NAME := twrp_a03s
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="a03snnxx-user 13 TP1A.220624.014 A037FXXS8CYE1 release-keys"
+BUILD_FINGERPRINT="samsung/a03snnxx/a03s:13/TP1A.220624.014/A037FXXU4CWI1:user/release-keys"
+BUILD_USERNAME="Topser99"
