@@ -6,10 +6,10 @@
 #
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 31
+PRODUCT_TARGET_VNDK_VERSION := 30
 
 # API
-PRODUCT_SHIPPING_API_LEVEL := 32
+PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -18,15 +18,15 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 
 # fastbootd
 PRODUCT_PACKAGES += \
-	android.hardware.fastboot@1.0-impl-mtk \
-	android.hardware.fastboot@1.0-impl-mtk.recovery \
+	android.hardware.fastboot@1.0-impl-mock \
+	android.hardware.fastboot@1.0-impl-mock.recovery \
 	fastbootd
 
 # bootctrl
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-impl.recovery
-
+    android.hardware.boot@1.2-service
 # Health Hal
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
